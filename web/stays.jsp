@@ -41,7 +41,7 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value=""/>
-                        <input type="submit" name="exit-parking" value="Registrar"/>
+                        <input type="submit" name="exit-parking" value="Registrar saida"/>
                     </form> 
                 </td>
             </tr>
