@@ -22,6 +22,8 @@
                 Placa: <input type="text" name="plate"/>
                 <input type="submit" name="enter" value="Registrar"/>
             </form>
+            
+            
         </fieldset>
         <hr/>
         
