@@ -23,7 +23,7 @@
     </div>
 <%}%>
 <%if(Database.getConnectionException()!=null){%>
-    <div>
+    <div style="color:red;">
         Erro ao tentar conexão com o banco de dados:
         <%=Database.getConnectionException().getMessage()%>                
     </div>    
