@@ -1,8 +1,31 @@
 <%-- any content can be specified here e.g.: --%>
+<%@page import="com.domain.web.Database"%>
 <%@ page pageEncoding="UTF-8" %>
+<%
+    if(request.getParameter("do-logoff")!=null){
+        session.removeAttribute("me.id");
+        session.removeAttribute("me.name");
+        session.removeAttribute("me.login");
+        session.removeAttribute("me.passwordHash");
+        response.sendRedirect(request.getContextPath()+"/home.jsp");
+    }
+%>
 <h1>Parking Webapp</h1>
-<div>
-    <a href="stays.jsp">ESTADIAS</a>
-    <a href="history.jsp">HISTORICO</a>
-</div>
+<%if(session.getAttribute("me.login")!=null){%>
+    <form>
+        Bem vindo, <%=session.getAttribute("me.name")%>
+        <input type="submit" name="do-logoff" value="Sair"/>   
+    </form>
+    <hr/>
+    <div>
+        <a href="stays.jsp">ESTADIAS</a>
+        <a href="history.jsp">HISTORICO</a>
+    </div>
+<%}%>
+<%if(Database.getConnectionException()!=null){%>
+    <div>
+        Erro ao tentar conexão com o banco de dados:
+        <%=Database.getConnectionException().getMessage()%>                
+    </div>    
+<%}%>
 <hr/>
